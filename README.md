@@ -68,3 +68,11 @@ Copyright (C) 2021 Dashbit
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+### To run with docker-compose
+
+```bash
+docker-compose -f docker/docker-compose.yaml up
+```
+
+Access the running instance: http://localhost:4040/

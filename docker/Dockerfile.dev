@@ -1,0 +1,14 @@
+FROM elixir:1.12-alpine
+
+EXPOSE 4000
+
+RUN apk add inotify-tools curl build-base libgcc && \
+    mix local.hex --force && \
+    mix local.rebar --force
+
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+ENV RUSTUP_HOME=/root/.rustup \
+    RUSTFLAGS="-C target-feature=-crt-static" \
+    CARGO_HOME=/root/.cargo  \
+    PATH="/root/.cargo/bin:$PATH"

@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+    livebook:
+        image: livebook:dev
+        build:
+            context: ../
+            dockerfile: ./docker/Dockerfile.dev
+        working_dir: /livebook
+        volumes:
+            - ../:/livebook
+        env_file:
+            - '../.env'
+        command: mix phx.server
+        ports:
+            - "8080:8080"
+            - "4040:4000"
